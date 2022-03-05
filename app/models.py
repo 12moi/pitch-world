@@ -6,14 +6,14 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from . import db,login_manager
 from datetime import datetime
 
-class User(UserMixin, db.model):
+class User(UserMixin, db.Model):
     _tablename_='users'
-    id=db.Column(db.string(255),unique=True,nullabl=False)
-    username=db.Column(db.string(255),unique=True,nullabl=False)
-    email=db.Column(db.string(255),unique=True,nullabl=False)
-    secure_password=db.column(db.string(255),unique=True,nullabl=False)
-    bio=db.Column(db.string(255))
-    profle_pic_path=db.column(db.string())
+    id=db.Column(db.String(255),unique=True,nullable=False)
+    username=db.Column(db.String(255),unique=True,nullable=False)
+    email=db.Column(db.String(255),unique=True,nullable=False)
+    secure_password=db.column(db.String(255))
+    bio=db.Column(db.String(255))
+    profle_pic_path=db.column(db.String())
     pitches=db.relationship('Pitch', backref='user', lazy='dynamic')
     comment=db.relationship('Comment', backref='user', lazy='dynamic')
     upvote=db.relationship('Upvote', backref='user', lazy='dynamic')
@@ -39,7 +39,7 @@ class User(UserMixin, db.model):
     def __repr__(self):
         return f'User {self.username}'
 
-class Pitch(db.model):
+class Pitch(db.Model):
     _tablename_='pitches'
     id=db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(255),nullable=False)
