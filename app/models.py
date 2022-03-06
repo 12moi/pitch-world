@@ -2,11 +2,18 @@
 
 
 from flask_login import UserMixin,current_user
+import sqlalchemy
 from werkzeug.security import generate_password_hash,check_password_hash
-from . import db,login_manager
+from . import  login_manager
 from datetime import datetime
 
-class User(UserMixin, db.Model):
+
+
+from . import db
+
+# # db = sqlalchemy("")
+
+class User(UserMixin,db.Model):
     _tablename_='users'
     id=db.Column(db.String(255),unique=True,nullable=False)
     username=db.Column(db.String(255),unique=True,nullable=False)
