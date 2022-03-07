@@ -13,14 +13,15 @@ from . import db
 
 # # db = sqlalchemy("")
 
-class User(UserMixin,db.Model):
+class User(db.Model):
     _tablename_='users'
-    id=db.Column(db.String(255),unique=True,nullable=False)
+    id=db.Column(db.Integer, primary_key=True)
+    # ,unique=True,nullable=False
     username=db.Column(db.String(255),unique=True,nullable=False)
     email=db.Column(db.String(255),unique=True,nullable=False)
-    secure_password=db.column(db.String(255))
+    # secure_password=db.column(db.String(255))
     bio=db.Column(db.String(255))
-    profle_pic_path=db.column(db.String())
+    # profle_pic_path=db.column(db.String())
     pitches=db.relationship('Pitch', backref='user', lazy='dynamic')
     comment=db.relationship('Comment', backref='user', lazy='dynamic')
     upvote=db.relationship('Upvote', backref='user', lazy='dynamic')
@@ -30,9 +31,9 @@ class User(UserMixin,db.Model):
     def set_password(self):
         raise AttributeError('You cannot read the password attribute')
 
-    @set_password.setter
-    def password(self, password):
-        self.secure_password = generate_password_hash(password)
+    # @set_password.setter
+    # def password(self, password):
+    #     self.secure_password = generate_password_hash(password)
 
 
     def save_u(self):
@@ -54,7 +55,7 @@ class Pitch(db.Model):
     comment=db.relationship('Comment',backref='pitch',lazy='dynamic')
     upvote=db.relationship('Upvote',backref='pitch',lazy='dynamic')
     downvote=db.relationship('Downvote', backref='pitch',lazy='dynamic')
-    user_id=db.Column(db.Interger,db.ForeignKey('users.id'))
+    user_id=db.Column(db.Integer,db.ForeignKey('users.id'))
     time=db.Column(db.DateTime,default=datetime.utcnow)
     category=db.Column(db.String(255),index=True, nullable=False)
 
