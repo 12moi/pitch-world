@@ -7,18 +7,21 @@ This is a flask application that allows users to post one minute pitches and als
 
 
 
-
-
-
 ### User Story
-Comment on the different pitches posted py other uses.<br>
-See the pitches posted by other uses.<br>
-Vote on s pitch they have viwed by giving it a upvote or a downvote.<br>
-Register to be allowed to log in to the application<br>
-View pitches from the different categories.<br>
-Submit a pitch to a specific category of their choice.
+1. Comment on the different pitches posted py other uses.<br>
+2. See the pitches posted by other uses.<br>
+3. Vote on s pitch they have viwed by giving it a upvote or a downvote.<br>
+4. Register to be allowed to log in to the application<br>
+5. View pitches from the different categories.<br>
+6. Submit a pitch to a specific category of their choice.
 
 ### BDD
+Behaviour                 |   Input                              |Output
+-------------------------------------------------------------------------------
+Load the page             | On page load                         | Get all post, select between sign up and login
+-------------------------------------------------------------------------------
+Select signup             |Email,username,password               |redirect to login
+-------------------------------------------------------------------------------
 
 
 ### Development Installation
