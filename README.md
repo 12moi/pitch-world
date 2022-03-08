@@ -15,13 +15,7 @@ This is a flask application that allows users to post one minute pitches and als
 5. View pitches from the different categories.<br>
 6. Submit a pitch to a specific category of their choice.
 
-### BDD
-Behaviour                 |   Input                              |Output
--------------------------------------------------------------------------------
-Load the page             | On page load                         | Get all post, select between sign up and login
--------------------------------------------------------------------------------
-Select signup             |Email,username,password               |redirect to login
--------------------------------------------------------------------------------
+
 
 
 ### Development Installation
