@@ -1,28 +1,18 @@
-# from flask_wtf import FlaskForm
-# from wtforms import ValidationError, StringField,PasswordField,SubmitField,BooleanField
-# from app.models import User
 
-# from tests.user_test import UserTest
-# # from wtforms.validators import Required,Email,EqualTo
-# # from ..models import User
 
-# class LoginForm(FlaskForm):
-#     username = StringField('Username')
-#     password = PasswordField('Password')
-#     remember = BooleanField('Remember Me!')
-#     submit = SubmitField('Login')
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField,SubmitField, ValidationError, BooleanField,TextAreaField
+from wtforms.validators import InputRequired,Email,EqualTo
 
-# class RegForm(FlaskForm):
-#     email = StringField('Your Email Address')
-#     username = StringField('Enter Your Username')
-#     password = PasswordField('Password')
-#     password_confirm = PasswordField('Confirm Passwords')
-#     submit = SubmitField('Sign Up')
+class RegistrationForm(FlaskForm):
+    email = StringField('Enter Your Email Address', validators=[InputRequired(), Email()])
+    username = StringField('Enter Your username', validators = [InputRequired()])
+    password = PasswordField('Input password', validators = [InputRequired(),EqualTo('password_confirm', message = 'Kindly input matching passwords')])
+    password_confirm = PasswordField('Kindly confirm password', validators = [InputRequired()])
+    submit = SubmitField('Sign Up')
 
-#     def validate_email(self,data_field):
-#         if UserTest.query.filter_by(email = data_field.data).first():
-#             raise ValidationError("The Email has already been taken!")
-    
-#     def validate_username(self, data_field):
-#         if User.query.filter_by(username = data_field.data).first():
-#             raise ValidationError("The username has already been taken")
+class LoginForm(FlaskForm):
+    email = StringField ('Enter Your Email Address', validators = [InputRequired(), Email()])
+    password = PasswordField('Input Password', validators = [InputRequired()])
+    remember = BooleanField('Save password')
+    submit = SubmitField('Sign In')

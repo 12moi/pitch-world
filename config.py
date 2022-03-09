@@ -1,29 +1,34 @@
-from distutils.command.config import config
-from distutils.debug import DEBUG
 import os
 
-from dotenv import load_dotenv
-load_dotenv()
-
 class Config:
-    SQLALCHEMY_DATABASE_URL=os.environ.get('DATABASE_URL')
-    SQLALCHEMY_TRACK_MODIFICATION=True
-    SECTRECT_KEY=os.environ.get('SECRET_KEY')
-    UPLOADED_PHOTOS_DEST='app/static/photos'
-    MAIL_SERVER='smt.gmail.com'
-    MAIL_PORT=456
-    MAIL_USE_TLS=False
-    MAIL_USE_SSL=True
-    MAIL_USERNAME=os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
 
+    SECRET_KEY = '12673'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Cyn12673#@localhost/pitches'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+
+
+    #  email configurations
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
+
+    
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URL=os.environ.get('DATABASE_URL')
+    
+    pass
 
 class DevConfig(Config):
-    DEBUG=True
+    DEBUG = True
 
-config_option={
-    'development':DevConfig,
-    'production':ProdConfig
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
 }

@@ -15,8 +15,23 @@ This is a flask application that allows users to post one minute pitches and als
 5. View pitches from the different categories.<br>
 6. Submit a pitch to a specific category of their choice.
 
+### Installation / Setup instruction
+The application requires the following installation to operate:
+1. SQLALCHMY
+2. Python3.8
+3. Flask
 
+##### Cloning the application
+On the terminal:
+1. git clone 
+2. cd News-app
+3. code . or atom . based on the editor you have
 
+### Running the Application
+To run the application, open the cloned file in the terminal and run the following commands:
+1. $ chmod +x star.sh
+2. ./start.sh
+3. To run test for  application $ python3.8 user_test.py
 
 ### Development Installation
 To get the code.. <br>
