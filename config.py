@@ -3,13 +3,10 @@ import os
 class Config:
 
     SECRET_KEY = '12673'
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Cyn12673#@localhost/pitches'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:moi12#@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    # if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
-
+   
 
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
