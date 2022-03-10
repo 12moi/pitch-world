@@ -29,7 +29,7 @@ On the terminal:
 
 ### Running the Application
 To run the application, open the cloned file in the terminal and run the following commands:
-1. $ chmod +x star.sh
+1. $ chmod +x start.sh
 2. ./start.sh
 3. To run test for  application $ python3.8 user_test.py
 
