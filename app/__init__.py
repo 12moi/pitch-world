@@ -8,7 +8,7 @@ from flask_login import LoginManager
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
-
+import os
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -41,5 +41,7 @@ def create_app(config_name):
 
     # configure UploadSet
     configure_uploads(app,photos)
-
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:moi12#@localhost/pitch'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
     return app 
