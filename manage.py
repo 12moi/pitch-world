@@ -6,7 +6,7 @@ from app.models import User,Pitch,Upvote,Downvote,Comment
 from  flask_migrate import MigrateCommand,Migrate
 # from flask_simplemde import SimpleMDE
 
-app = create_app('production')
+app = create_app('development')
 
 manager = Manager(app)
 manager.add_command('server',Server)
