@@ -12,6 +12,7 @@ Flask-SimpleMDE==0.3.0
 Flask-SQLAlchemy==2.5.1
 Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
+gunicorn==19.9.0
 greenlet==1.1.2
 importlib-metadata==4.11.2
 importlib-resources==5.4.0
